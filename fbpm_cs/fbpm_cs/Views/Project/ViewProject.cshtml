@@ -1,0 +1,39 @@
+﻿@model fbpm_cs.Models.ProjectDetailModel
+
+<fieldset>
+    <legend>ProjectDetailModel</legend>
+
+    <div class="display-label">ProjectID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProjectID)
+    </div>
+
+    <div class="display-label">ProjectName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProjectName)
+    </div>
+
+    <div class="display-label">NoOfBlocks</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoOfBlocks)
+    </div>
+
+    <div class="display-label">NoOfFloors</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoOfFloors)
+    </div>
+
+    <div class="display-label">NoOfFlats</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NoOfFlats)
+    </div>
+
+    <div class="display-label">Amenities</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Amenities)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

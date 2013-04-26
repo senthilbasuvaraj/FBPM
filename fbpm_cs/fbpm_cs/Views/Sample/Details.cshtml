@@ -1,0 +1,20 @@
+﻿@model fbpm_cs.Models.Sample
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Sample</legend>
+
+    <div class="display-label">SampleDesc</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SampleDesc)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SampleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

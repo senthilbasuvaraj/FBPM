@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PaymentScheduleModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PaymentScheduleModelStoreContainer">
+          <EntitySet Name="PaymentSchedule" EntityType="PaymentScheduleModel.Store.PaymentSchedule" store:Type="Tables" store:Schema="dbo" store:Name="PaymentSchedule">
+            <DefiningQuery>SELECT 
+      [PaymentSchedule].[ScheduleID] AS [ScheduleID], 
+      [PaymentSchedule].[UserID] AS [UserID], 
+      [PaymentSchedule].[ScheduleText] AS [ScheduleText], 
+      [PaymentSchedule].[ScheduleDate] AS [ScheduleDate], 
+      [PaymentSchedule].[SchedulePercent] AS [SchedulePercent], 
+      [PaymentSchedule].[BookedDate] AS [BookedDate], 
+      [PaymentSchedule].[BookingAmount] AS [BookingAmount], 
+      [PaymentSchedule].[ScheduleAmount] AS [ScheduleAmount], 
+      [PaymentSchedule].[RemainingAmount] AS [RemainingAmount]
+      FROM [dbo].[PaymentSchedule] AS [PaymentSchedule]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'C:\USERS\I048548\DOCUMENTS\GITHUB\FBPM\FBPM_CS\FBPM_CS\APP_DATA\FBPM.MDF.dbo.PaymentSchedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PaymentSchedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ScheduleDate" />
+            <PropertyRef Name="SchedulePercent" />
+            <PropertyRef Name="BookedDate" />
+            <PropertyRef Name="BookingAmount" />
+            <PropertyRef Name="ScheduleAmount" />
+            <PropertyRef Name="RemainingAmount" />
+          </Key>
+          <Property Name="ScheduleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="varchar" Nullable="false" MaxLength="25" />
+          <Property Name="ScheduleText" Type="varchar" MaxLength="200" />
+          <Property Name="ScheduleDate" Type="date" Nullable="false" />
+          <Property Name="SchedulePercent" Type="int" Nullable="false" />
+          <Property Name="BookedDate" Type="date" Nullable="false" />
+          <Property Name="BookingAmount" Type="money" Nullable="false" />
+          <Property Name="ScheduleAmount" Type="money" Nullable="false" />
+          <Property Name="RemainingAmount" Type="money" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PaymentScheduleModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="fbpmEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PaymentSchedules" EntityType="PaymentScheduleModel.PaymentSchedule" />
+        </EntityContainer>
+        <EntityType Name="PaymentSchedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ScheduleDate" />
+            <PropertyRef Name="SchedulePercent" />
+            <PropertyRef Name="BookedDate" />
+            <PropertyRef Name="BookingAmount" />
+            <PropertyRef Name="ScheduleAmount" />
+            <PropertyRef Name="RemainingAmount" />
+          </Key>
+          <Property Name="ScheduleID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+          <Property Name="ScheduleText" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="ScheduleDate" Type="DateTime" Nullable="false" />
+          <Property Name="SchedulePercent" Type="Int32" Nullable="false" />
+          <Property Name="BookedDate" Type="DateTime" Nullable="false" />
+          <Property Name="BookingAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ScheduleAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="RemainingAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PaymentScheduleModelStoreContainer" CdmEntityContainer="fbpmEntities">
+          <EntitySetMapping Name="PaymentSchedules">
+            <EntityTypeMapping TypeName="PaymentScheduleModel.PaymentSchedule">
+              <MappingFragment StoreEntitySet="PaymentSchedule">
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ScheduleText" ColumnName="ScheduleText" />
+                <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+                <ScalarProperty Name="SchedulePercent" ColumnName="SchedulePercent" />
+                <ScalarProperty Name="BookedDate" ColumnName="BookedDate" />
+                <ScalarProperty Name="BookingAmount" ColumnName="BookingAmount" />
+                <ScalarProperty Name="ScheduleAmount" ColumnName="ScheduleAmount" />
+                <ScalarProperty Name="RemainingAmount" ColumnName="RemainingAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="PaymentSchedule">
+        <EntityTypeShape EntityType="PaymentScheduleModel.PaymentSchedule" Width="1.5" PointX="0.75" PointY="0.75" Height="2.41404296875" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
